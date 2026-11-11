@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Viraj Metal Coating</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: plain industrial catalogue. Photos of their own plant carry the page; type is
+   normal case, left aligned; one steel-blue taken from their logo, used sparingly. */
+:root{
+  --bg:#ffffff; --alt:#f3f4f4; --fg:#1d2226; --muted:#5d666c; --line:#dde1e3;
+  --blue:#3e6577; --blue-ink:#ffffff; --warn:#9a4a0b; --ok:#2b6e45; --wa:#1f8f4e;
+  --f-head:"Libre Franklin",Arial,Helvetica,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15191b; --alt:#1c2124; --fg:#e7eaec; --muted:#a2acb2; --line:#2e353a;
+  --blue:#7fa9bd; --blue-ink:#0f1416; --warn:#eb9b57; --ok:#73c493; --wa:#2fae64; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15191b; --alt:#1c2124; --fg:#e7eaec; --muted:#a2acb2; --line:#2e353a;
+  --blue:#7fa9bd; --blue-ink:#0f1416; --warn:#eb9b57; --ok:#73c493; --wa:#2fae64; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.6 var(--f-body)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-head);margin:0;line-height:1.15;text-wrap:balance}
+h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:800;letter-spacing:-.015em}
+h2{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:700;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+section{padding-block:clamp(48px,7vw,80px)}
+section.alt{background:var(--alt)}
+.intro{max-width:640px;display:grid;gap:10px;margin-bottom:32px}
+.intro p{color:var(--muted)}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--fg)}
+.brand img{height:36px;width:auto;background:#fff;border-radius:2px}
+.brand span{font:700 1.05rem/1.1 var(--f-head)}
+.brand small{display:block;font:400 .8rem/1.2 var(--f-body);color:var(--muted)}
+nav.links{display:flex;gap:22px;margin-left:auto;font-size:.95rem}
+nav.links a{color:var(--fg);text-decoration:none}
+nav.links a:hover{text-decoration:underline}
+.call{font-weight:600;white-space:nowrap;color:var(--fg);text-decoration:none}
+@media (max-width:900px){nav.links{display:none}.call{margin-left:auto}}
+@media (max-width:480px){.brand small{display:none}.call{font-size:.9rem}}
+
+.btn{display:inline-block;font:600 1rem/1 var(--f-body);padding:13px 20px;border-radius:3px;border:1px solid var(--blue);background:var(--blue);color:var(--blue-ink);text-decoration:none;cursor:pointer}
+.btn.line{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+
+/* hero */
+.hero{padding-block:40px 56px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center}
+.hero-text{display:grid;gap:18px;min-width:0}
+.hero-text p{color:var(--muted);font-size:1.1rem;max-width:34em}
+.hero-text .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.hero img{width:100%;border-radius:3px;display:block}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:28px}
+.strip img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;display:block;background:var(--alt)}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.hero img.main{order:-1}}
+
+.stats{display:flex;flex-wrap:wrap;gap:12px 40px;border-top:1px solid var(--line);padding-top:20px;margin-top:8px}
+.stats div{font-size:.92rem;color:var(--muted)}
+.stats b{display:block;font:700 1.35rem/1.2 var(--f-head);color:var(--fg)}
+
+/* process catalogue */
+.cat{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.card h3{font-size:1.02rem}
+.card p{color:var(--muted);font-size:.94rem}
+.card .use{margin-top:auto;padding-top:10px;font-size:.84rem;color:var(--fg);border-top:1px solid var(--line)}
+.card.big{grid-column:span 2}
+.card.big h3{font-size:1.2rem}
+.card.big p{font-size:1rem;max-width:36em}
+@media (max-width:980px){.cat{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cat{grid-template-columns:1fr}.card.big{grid-column:auto}}
+
+.sectors{margin-top:28px;color:var(--muted);font-size:.95rem}
+.sectors b{color:var(--fg)}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.gal figure{margin:0}
+.gal img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:3px;background:var(--bg)}
+.gal figcaption{font-size:.9rem;color:var(--muted);margin-top:6px}
+@media (max-width:860px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95rem}
+.tw{overflow-x:auto}
+th,td{text-align:left;padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:.85rem}
+td:last-child,th:last-child{text-align:right;padding-right:0;font-variant-numeric:tabular-nums}
+
+/* plant */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:28px}}
+.photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;display:block}
+.plain{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.plain h3{margin-bottom:4px}
+.plain p{color:var(--muted);font-size:.95rem}
+.iso{display:flex;gap:16px;align-items:center;margin-top:24px}
+.iso img{width:96px;border:1px solid var(--line);background:#fff}
+.iso p{font-size:.9rem;color:var(--muted)}
+
+.clients{columns:3 220px;column-gap:40px;font-size:.98rem}
+.clients p{break-inside:avoid;padding:8px 0;border-bottom:1px solid var(--line)}
+.clients span{color:var(--muted);font-size:.88rem}
+
+/* quote form */
+.q{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:40px;align-items:start}
+@media (max-width:900px){.q{grid-template-columns:1fr}}
+.fg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.fg .full{grid-column:1/-1}
+@media (max-width:560px){.fg{grid-template-columns:1fr}}
+.f{display:grid;gap:5px;min-width:0}
+.f label{font-weight:600;font-size:.92rem}
+.f input,.f select,.f textarea{font:inherit;font-size:1rem;color:var(--fg);background:var(--bg);border:1px solid #b9c1c5;border-radius:3px;padding:10px 11px;width:100%;min-width:0}
+:root[data-theme="dark"] .f input,:root[data-theme="dark"] .f select,:root[data-theme="dark"] .f textarea{border-color:var(--line)}
+.f textarea{min-height:80px;resize:vertical}
+.chk{display:flex;gap:10px;align-items:center}
+.chk input{width:18px;height:18px;accent-color:var(--blue)}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);display:grid;gap:14px;border:1px solid var(--line);background:var(--bg);border-radius:3px;padding:20px}
+.side .ref{color:var(--muted);font-size:.9rem}
+.side .ref b{color:var(--fg);font-variant-numeric:tabular-nums}
+.side dl{margin:0}
+.side dl div{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.side dt{color:var(--muted)}
+.side dd{margin:0;text-align:right;overflow-wrap:anywhere}
+.notes{display:grid;gap:8px}
+.note{font-size:.92rem;color:var(--muted)}
+.note.warn{color:var(--warn)}
+.note.warn::before{content:"Check: ";font-weight:600}
+.status{font-size:.9rem;color:var(--muted)}
+.status.ok{color:var(--ok)}
+.status.err{color:var(--warn)}
+
+.inbox{margin-top:32px;border:1px solid var(--line);border-radius:3px;padding:20px;background:var(--bg)}
+.inbox .row{display:grid;grid-template-columns:minmax(0,9rem) minmax(0,1fr) auto;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.93rem}
+.inbox .row:last-child{border-bottom:0}
+.inbox .meta{color:var(--muted)}
+.inbox select{font:inherit;font-size:.88rem;padding:5px 6px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--fg)}
+@media (max-width:640px){.inbox .row{grid-template-columns:1fr}}
+
+footer{background:var(--alt);padding-block:48px 32px;border-top:1px solid var(--line)}
+.ft{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;font-size:.98rem}
+@media (max-width:860px){.ft{grid-template-columns:1fr}}
+.ft h3{margin-bottom:8px}
+.ft p{color:var(--muted)}
+.num{color:var(--fg)!important;font-weight:600;display:flex;gap:10px;align-items:center}
+.num span{user-select:all}
+.copy{font:inherit;font-size:.8rem;font-weight:400;border:1px solid var(--line);background:var(--bg);color:var(--muted);border-radius:3px;padding:2px 8px;cursor:pointer}
+.fine{margin-top:32px;font-size:.85rem;color:var(--muted)}
+
+.wa-float{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:8;background:var(--wa);color:#fff;text-decoration:none;font-weight:600;padding:12px 16px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.18);font-size:.95rem}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo.jpg" alt="" width="70" height="36"><span>Viraj Metal Coating<small>Electroplating · Bhor, Pune</small></span></a>
+    <nav class="links" aria-label="Sections"><a href="#processes">Processes</a><a href="#work">Our work</a><a href="#plant">Plant</a><a href="#quote">Get a quote</a><a href="#contact">Contact</a></nav>
+    <span class="call">80077 76568</span>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <h1>Electroplating and metal finishing in Pune since the late 1990s</h1>
+      <p>Hard chrome, zinc, zinc-nickel, silver and other finishes for engineering, hydraulic, defence and food-equipment parts. Job work from a single prototype to production batches.</p>
+      <div class="row"><a class="btn" href="#quote">Request a quote</a><a class="btn line" href="#processes">Our processes</a></div>
+      <div class="stats">
+        <div><b>27 years</b>in plating</div>
+        <div><b>16,000 sq ft</b>workshop</div>
+        <div><b>ISO 9001:2015</b>certified</div>
+      </div>
+    </div>
+    <img class="main" src="img/f-hoist.jpg" alt="Plating line at the Bhor plant with a jib crane over the process tanks">
+  </div>
+  <div class="wrap">
+    <div class="strip">
+      <img src="img/rollers.jpg" alt="Hard chrome plated rollers">
+      <img src="img/p-nuts.jpg" alt="Zinc plated hex fittings">
+      <img src="img/p-copper.jpg" alt="Copper plated shaft">
+      <img src="img/p-pins.jpg" alt="Yellow zinc plated pins">
+    </div>
+  </div>
+</section>
+
+<section id="processes" class="alt">
+  <div class="wrap">
+    <div class="intro"><h2>Processes</h2><p>All plating, pre-treatment and testing is done in our own plant. Send us a drawing or sample and we will suggest the right finish.</p></div>
+    <div class="cat" id="cat"></div>
+    <p class="sectors"><b>Industries we serve:</b> defence, food and pharma equipment, electronics, industrial manufacturing, renewable energy, hydraulics and general engineering.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="intro"><h2>Our work</h2><p>Parts plated at our plant for customers in Pune and across Maharashtra.</p></div>
+    <div class="gal">
+      <figure><img src="img/p-yellow.jpg" alt="Yellow zinc plated sleeves" loading="lazy"><figcaption>Sleeves, zinc with yellow passivation</figcaption></figure>
+      <figure><img src="img/p-black.jpg" alt="Black finished flanged housing" loading="lazy"><figcaption>Flanged housing, black finish</figcaption></figure>
+      <figure><img src="img/p-green.jpg" alt="Green finished defence component" loading="lazy"><figcaption>Defence component, green finish</figcaption></figure>
+      <figure><img src="img/p-copper.jpg" alt="Copper plated stepped shaft" loading="lazy"><figcaption>Stepped shaft, copper plated</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="defence" class="alt">
+  <div class="wrap">
+    <div class="intro"><h2>Defence and aerospace jobs</h2><p>We have supplied plated components for Indian Air Force programmes through Micro India Engineering since 2016, and lead-tin plating for HAL since 2020.</p></div>
+    <div class="tw"><table>
+      <thead><tr><th>Customer</th><th>Component</th><th>Process</th><th>Since</th></tr></thead>
+      <tbody>
+        <tr><td>Micro India (IAF)</td><td>Lugs 500 / LUG300</td><td>Zinc-nickel plating</td><td>2016</td></tr>
+        <tr><td>Micro India (IAF)</td><td>Adaptors</td><td>Zinc plating</td><td>2020</td></tr>
+        <tr><td>Micro India (IAF)</td><td>LIFA cable assembly</td><td>Silver plating</td><td>2020</td></tr>
+        <tr><td>HAL</td><td>Aerospace parts</td><td>Lead-tin plating</td><td>2020</td></tr>
+        <tr><td>Workpact Solutions</td><td>Defence components (Rafale)</td><td>—</td><td>2021</td></tr>
+        <tr><td>Micro India (DLJ)</td><td>Chaff filler material development</td><td>Chemical etching and plating</td><td>2022</td></tr>
+        <tr><td>Micro India (IAF)</td><td>Flare container</td><td>Chromodising</td><td>2022</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="plant">
+  <div class="wrap two">
+    <div class="photos">
+      <img src="img/f-tanks.jpg" alt="Process tanks and rectifiers" loading="lazy">
+      <img src="img/q-lab.jpg" alt="Chemical testing lab" loading="lazy">
+      <img src="img/f-wtp.jpg" alt="Water treatment plant" loading="lazy">
+      <img src="img/f-blast.jpg" alt="Glass bead blasting cabinet" loading="lazy">
+    </div>
+    <div>
+      <h2 style="margin-bottom:20px">Plant and quality</h2>
+      <ul class="plain">
+        <li><h3>Plating lines</h3><p>Process tanks, rectifiers, filtration, air agitation, hoists, drying ovens and process control, in a 16,000 sq ft workshop.</p></li>
+        <li><h3>In-house lab</h3><p>Chemical bath analysis, salt spray testing, coating thickness meter, conductivity and pH meters, digital micrometers and verniers.</p></li>
+        <li><h3>Effluent and environment</h3><p>Effluent treatment, fume extraction and scrubbers, with zero liquid discharge.</p></li>
+      </ul>
+      <div class="iso"><img src="img/q-cert.jpg" alt="ISO 9001:2015 certificate" loading="lazy"><p>ISO 9001:2015 certified by Alcumus ISOQAR for electroplating and metal coating services. Certificate no. 26995-QMS-001.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="clients" class="alt">
+  <div class="wrap">
+    <div class="intro"><h2>Customers</h2></div>
+    <div class="clients" id="clients"></div>
+  </div>
+</section>
+
+<section id="quote">
+  <div class="wrap">
+    <div class="intro"><h2>Get a quote</h2><p>Tell us about the part. The form checks your details against the process and sends the enquiry to us on WhatsApp. You can also email drawings to virajcoating@gmail.com.</p></div>
+    <div class="q">
+      <form id="rfqForm" novalidate>
+        <div class="fg">
+          <div class="f full"><label for="process">Process</label><select id="process"></select></div>
+          <div class="f" id="colourWrap"><label for="colour">Passivation colour</label><select id="colour"><option value="">Not sure</option><option>Blue</option><option>Black</option><option>Yellow</option><option>Green</option></select></div>
+          <div class="f"><label for="base">Base material</label><select id="base"><option value="">Select</option><option value="ms">Mild / carbon steel</option><option value="hss">High-strength steel (above ~31 HRC)</option><option value="ss">Stainless steel</option><option value="al">Aluminium</option><option value="cu">Copper / brass</option><option value="other">Other</option></select></div>
+          <div class="f"><label for="thk">Thickness required (µm)</label><input id="thk" type="number" inputmode="decimal" min="0" step="1" placeholder="e.g. 25"></div>
+          <div class="f"><label for="qty">Quantity (pcs)</label><input id="qty" type="number" inputmode="numeric" min="1" step="1" placeholder="e.g. 500"></div>
+          <div class="f"><label for="size">Part size</label><input id="size" type="text" placeholder="e.g. 600 mm long, Ø40"></div>
+          <div class="f"><label for="need">Required by</label><input id="need" type="date"></div>
+          <div class="f full"><label class="chk" for="mask"><input id="mask" type="checkbox"> Masking needed on threads, bores or other areas</label></div>
+          <div class="f full"><label for="spec">Specification or remarks</label><textarea id="spec" placeholder="e.g. Fe/Zn 12, yellow passivation, 96 h salt spray, mask M12 threads"></textarea></div>
+          <div class="f"><label for="name">Your name</label><input id="name" type="text" autocomplete="name"></div>
+          <div class="f"><label for="company">Company</label><input id="company" type="text" autocomplete="organization"></div>
+          <div class="f"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          <div class="f"><label for="email">Email</label><input id="email" type="email" autocomplete="email"></div>
+        </div>
+      </form>
+      <aside class="side" aria-live="polite">
+        <p class="ref">Enquiry ref. <b id="ref">VMC-</b></p>
+        <dl id="summary"></dl>
+        <div class="notes" id="notes"></div>
+        <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Send enquiry on WhatsApp</a>
+        <button class="btn line" type="button" id="copyBtn">Copy enquiry text</button>
+        <p class="status" id="status"></p>
+      </aside>
+    </div>
+    <div class="inbox" id="inbox" hidden>
+      <h3>Enquiries received</h3>
+      <p class="meta" style="font-size:.9rem;margin:4px 0 8px">Only you can see this list. <span id="inboxCount"></span></p>
+      <div id="inboxList"><p class="meta" style="padding:10px 0">No enquiries saved yet.</p></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="ft">
+      <div><h3>Address</h3><p>Viraj Metal Coating<br>Gat No. 33, Kasurdi Kheba, Behind Yogiraj Dhaba<br>Tal. Bhor, Dist. Pune 412205, Maharashtra</p><p style="margin-top:8px"><a href="https://www.google.com/maps/search/?api=1&amp;query=Kasurdi+Kheba+Bhor+Pune+412205" target="_blank" rel="noopener">View on Google Maps</a></p></div>
+      <div><h3>Phone</h3><p>Gajanan Krishna Panchal</p><p class="num"><span>80077 76568</span><button class="copy" type="button" data-copy="8007776568">Copy</button></p><p style="margin-top:6px">Workshop</p><p class="num"><span>98600 39666</span><button class="copy" type="button" data-copy="9860039666">Copy</button></p><p class="num"><span>99703 92916</span><button class="copy" type="button" data-copy="9970392916">Copy</button></p></div>
+      <div><h3>Email</h3><p class="num"><span>virajcoating@gmail.com</span><button class="copy" type="button" data-copy="virajcoating@gmail.com">Copy</button></p></div>
+    </div>
+    <p class="fine">© Viraj Metal Coating, Pune. ISO 9001:2015.</p>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/918007776568" target="_blank" rel="noopener">WhatsApp us</a>
+
+<script>
+(function(){
+  const WA="918007776568";
+  const PROCS=[
+    {k:"hc",n:"Hard chrome plating",d:"2 to 200 µm on ID and OD, with masking. Hard, wear-resistant surface for parts that slide, roll or seal.",u:"Hydraulic rods, rollers, shafts, bores",img:"img/rollers.jpg",min:2,max:200},
+    {k:"zn",n:"Zinc plating",d:"Sacrificial corrosion protection for steel, finished with blue, black, yellow or green passivation.",u:"Fasteners, fittings, brackets, sleeves",img:"img/p-nuts.jpg",colour:true,hydro:true},
+    {k:"znni",n:"Zinc-nickel plating",d:"Higher corrosion resistance than zinc, with hydrogen de-embrittlement baking.",u:"Defence and automotive steel parts",hydro:true},
+    {k:"enp",n:"Electroless nickel (ENP)",d:"Even thickness on complex shapes and blind holes.",u:"Valves, moulds, precision parts"},
+    {k:"ag",n:"Silver plating",d:"High conductivity for electrical joints.",u:"Contacts, connectors, cable assemblies"},
+    {k:"cu",n:"Copper plating",d:"As an undercoat, conductive layer or final finish.",u:"Electrical parts, undercoat"},
+    {k:"sn",n:"Tin plating",d:"Solderable, corrosion-resistant finish.",u:"Terminals, busbars, relays"},
+    {k:"pbsn",n:"Lead-tin plating",d:"Solderability and lubricity on critical parts.",u:"Aerospace and defence"},
+    {k:"brass",n:"Brass plating",d:"Decorative finish and rubber-to-metal bonding.",u:"Hardware, bonded parts"},
+    {k:"chromo",n:"Chromodising",d:"Chromate conversion coating for aluminium.",u:"Aluminium housings, containers",alOnly:true},
+    {k:"phos",n:"Zinc / manganese phosphating",d:"Paint base, oil retention and anti-galling on steel.",u:"Gears, pins, painted parts"},
+    {k:"pass",n:"SS passivation",d:"Restores the protective layer after machining or welding.",u:"Food and pharma equipment",ssOnly:true},
+    {k:"cuat",n:"Copper anti-tarnishing",d:"Keeps copper and brass parts bright.",u:"Copper and brass components"},
+    {k:"blast",n:"Glass bead blasting",d:"Surface preparation or uniform satin finish.",u:"Before plating, or as a finish"}
+  ];
+  const CLIENTS=[["Micro India Engineering","Defence, food & pharma"],["Tara Relays Pvt. Ltd.","Electronics"],["Suttatti Enterprises Pvt. Ltd.","Industrial"],["Nikash CNC Pvt. Ltd.","Industrial"],["Bobst India Pvt. Ltd.","Packaging"],["Chaphekar Suspension Pvt. Ltd.","Defence"],["Jendamark India Pvt. Ltd.","Automation"],["Indeva Ergomatic India Pvt. Ltd.","Automation"],["Rel-Meth Technocraft LLP","Packaging"],["Accussion Engineering Pvt. Ltd.","Robotics"],["Belcon Powertrans LLP","Food, pharma & packaging"],["Workpact Solutions India Pvt. Ltd.","Defence"]];
+  const BASES={ms:"Mild / carbon steel",hss:"High-strength steel",ss:"Stainless steel",al:"Aluminium",cu:"Copper / brass",other:"Other"};
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  $("cat").innerHTML=PROCS.map(p=>`<article class="card${p.img?" big":""}"><h3>${p.n}</h3><p>${p.d}</p><p class="use">${p.u}</p></article>`).join("");
+  $("clients").innerHTML=CLIENTS.map(c=>`<p>${c[0]}<br><span>${c[1]}</span></p>`).join("");
+  $("process").innerHTML=`<option value="">Select a process</option>`+PROCS.map(p=>`<option value="${p.k}">${p.n}</option>`).join("")+`<option value="unsure">Not sure, please advise</option>`;
+
+  const d=new Date();
+  const ref="VMC-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
+  $("ref").textContent=ref;
+
+  const F=["process","colour","base","thk","qty","size","need","mask","spec","name","company","phone","email"];
+  try{const s=JSON.parse(localStorage.getItem("vmc-rfq-draft")||"null");if(s)F.forEach(k=>{if(s[k]!=null){if(k==="mask")$(k).checked=!!s[k];else $(k).value=s[k];}});}catch(e){}
+  const val=()=>{const o={};F.forEach(k=>o[k]=k==="mask"?$(k).checked:$(k).value.trim());return o;};
+  const proc=k=>PROCS.find(p=>p.k===k);
+  const ready=v=>v.process&&v.qty&&v.name&&v.phone;
+
+  function checks(v){
+    const p=proc(v.process),out=[],t=parseFloat(v.thk);
+    if(p&&p.min&&!isNaN(t)&&(t<p.min||t>p.max))out.push(["warn",`${t} µm is outside our hard chrome range of ${p.min} to ${p.max} µm. Mention it in remarks and we will advise.`]);
+    if(p&&p.hydro&&v.base==="hss")out.push(["warn","high-strength steel needs hydrogen de-embrittlement baking after plating. We will include it in the quote."]);
+    if(p&&p.alOnly&&v.base&&v.base!=="al")out.push(["warn","chromodising is for aluminium. For steel, zinc or zinc-nickel is usually the right choice."]);
+    if(p&&p.ssOnly&&v.base&&v.base!=="ss")out.push(["warn","passivation applies to stainless steel only."]);
+    if(v.need){const days=(new Date(v.need)-new Date())/864e5;if(days<3)out.push(["warn","that is a short lead time. Please call 80077 76568 to confirm before sending parts."]);}
+    if(p&&p.colour&&!v.colour)out.push(["","Choose a passivation colour, or we will follow your drawing."]);
+    return out;
+  }
+  function text(v){
+    const p=proc(v.process),L=[`Enquiry ${ref}`];
+    L.push(`Process: ${p?p.n:(v.process==="unsure"?"Not sure, please advise":"-")}${p&&p.colour&&v.colour?" ("+v.colour+" passivation)":""}`);
+    if(v.base)L.push(`Material: ${BASES[v.base]}`);
+    if(v.thk)L.push(`Thickness: ${v.thk} µm`);
+    if(v.qty)L.push(`Quantity: ${v.qty} pcs`);
+    if(v.size)L.push(`Size: ${v.size}`);
+    if(v.mask)L.push("Masking: required");
+    if(v.need)L.push(`Required by: ${v.need}`);
+    if(v.spec)L.push(`Remarks: ${v.spec}`);
+    L.push(`From: ${v.name||"-"}${v.company?", "+v.company:""}`);
+    if(v.phone)L.push(`Phone: ${v.phone}`);
+    if(v.email)L.push(`Email: ${v.email}`);
+    return L.join("\n");
+  }
+  let sent=false;
+  const setStatus=(m,c)=>{const s=$("status");s.textContent=m;s.className="status "+(c||"");};
+  function render(){
+    const v=val(),p=proc(v.process);
+    $("colourWrap").hidden=!(p&&p.colour);
+    try{localStorage.setItem("vmc-rfq-draft",JSON.stringify(v));}catch(e){}
+    const rows=[["Process",p?p.n:(v.process==="unsure"?"Please advise":"")],["Material",v.base?BASES[v.base]:""],["Thickness",v.thk?v.thk+" µm":""],["Quantity",v.qty?Number(v.qty).toLocaleString("en-IN")+" pcs":""],["Required by",v.need]];
+    $("summary").innerHTML=rows.map(r=>`<div><dt>${r[0]}</dt><dd>${r[1]?esc(r[1]):"—"}</dd></div>`).join("");
+    $("notes").innerHTML=checks(v).map(n=>`<p class="note ${n[0]}">${n[1]}</p>`).join("");
+    const ok=ready(v);
+    $("waBtn").href="https://wa.me/"+WA+"?text="+encodeURIComponent(text(v));
+    $("waBtn").style.opacity=ok?"1":".5";
+    if(!sent)setStatus(ok?"Ready to send. WhatsApp opens with your enquiry typed in.":"Fill in process, quantity, name and phone to send.","");
+  }
+  $("rfqForm").addEventListener("input",()=>{sent=false;render();});
+  $("rfqForm").addEventListener("submit",e=>e.preventDefault());
+  $("waBtn").addEventListener("click",e=>{
+    const v=val();
+    if(!ready(v)){e.preventDefault();setStatus("Please fill in process, quantity, name and phone first.","err");return;}
+    sent=true;setStatus("WhatsApp is opening. Press send there to deliver your enquiry.","ok");saveToInbox(v);
+  });
+  $("copyBtn").addEventListener("click",()=>{
+    navigator.clipboard.writeText(text(val())).then(()=>setStatus("Copied. Paste it into an email to virajcoating@gmail.com.","ok")).catch(()=>setStatus("Copying is blocked here. Please select the text and copy it.","err"));
+  });
+  document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",()=>{
+    navigator.clipboard.writeText(b.dataset.copy).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1500);}).catch(()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);});
+  }));
+  render();
+
+  let db=null,uid=null;
+  async function boot(){
+    if(!window.claude||!window.claude.use)return;
+    const [dbx,user]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
+    db=dbx;if(!db||!user)return;
+    try{uid=await user.id();}catch(e){}
+    let admin=false;try{admin=await user.canEdit();}catch(e){}
+    if(admin)startInbox();
+  }
+  async function saveToInbox(v){
+    if(!db||!uid)return;
+    try{
+      const r=db.doc("enquiries/"+uid),snap=await r.get();
+      const cur=snap.exists?(snap.data().items||[]):[];
+      if(cur.some(x=>x.ref===ref))return;
+      await r.set({items:cur.concat([Object.assign({ref,at:new Date().toISOString(),processName:proc(v.process)?proc(v.process).n:"Please advise"},v)]).slice(-50)});
+    }catch(e){}
+  }
+  function startInbox(){
+    $("inbox").hidden=false;
+    let enq=[],status={};
+    const draw=()=>{
+      const all=[].concat(...enq).sort((a,b)=>b.at.localeCompare(a.at));
+      $("inboxCount").textContent=all.length?all.length+" saved.":"";
+      if(!all.length)return;
+      $("inboxList").innerHTML=all.map(x=>{const s=status[x.ref]||"New";return `<div class="row"><div><b>${esc(x.ref)}</b><br><span class="meta">${esc(new Date(x.at).toLocaleDateString("en-IN",{day:"numeric",month:"short"}))}</span></div><div>${esc(x.processName)}, ${esc(x.qty||"?")} pcs<br><span class="meta">${esc([x.name,x.company,x.phone].filter(Boolean).join(" · "))}${x.spec?"<br>"+esc(x.spec):""}</span></div><div><select aria-label="Status for ${esc(x.ref)}" id="st-${esc(x.ref)}" data-ref="${esc(x.ref)}">${["New","Quoted","Won","Lost"].map(o=>`<option${o===s?" selected":""}>${o}</option>`).join("")}</select></div></div>`;}).join("");
+      $("inboxList").querySelectorAll("select").forEach(sel=>sel.addEventListener("change",()=>db.doc("rfqstatus/"+sel.dataset.ref).set({s:sel.value}).catch(()=>{})));
+    };
+    db.collection("enquiries").onSnapshot(s=>{enq=s.docs.map(d=>(d.data()||{}).items||[]);draw();},()=>{});
+    db.collection("rfqstatus").onSnapshot(s=>{status={};s.docs.forEach(d=>status[d.id]=(d.data()||{}).s);draw();},()=>{});
+  }
+  boot();
+})();
+</script>
+</body>
+</html>
